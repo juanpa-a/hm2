@@ -1,5 +1,4 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyAbQ6hTjMTJbO0e8PtAW-NgM-CD1UJzWUE",
     authDomain: "gif-chat-a251e.firebaseapp.com",
     databaseURL: "https://gif-chat-a251e.firebaseio.com",
     projectId: "gif-chat-a251e",
