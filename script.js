@@ -1,27 +1,36 @@
-let points = 0;
-let target = Math.round(Math.random() * 75) + 25; 
+var firebaseConfig = {
+    apiKey: "AIzaSyAbQ6hTjMTJbO0e8PtAW-NgM-CD1UJzWUE",
+    authDomain: "gif-chat-a251e.firebaseapp.com",
+    databaseURL: "https://gif-chat-a251e.firebaseio.com",
+    projectId: "gif-chat-a251e",
+    storageBucket: "gif-chat-a251e.appspot.com",
+    messagingSenderId: "870690375347",
+    appId: "1:870690375347:web:03663e9aa6b0b72abb12c6"
+};
 
-$('#target').text(target);
-$('#points').text(points);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-$('.crystal').click(function() {
-    points += parseInt(this.getAttribute('value'));
-    $('#points').text(points);
-});
+// let database = firebase.database();
+// let database = firebase.database();
 
-addEventListener('click', function(){
-    if (target === points) {
-        alert('You win!')
-        points = 0
-        target = Math.round(Math.random() * 75) + 25; 
-        $('#target').text(target);
-        $('#points').text(points);
-    } 
-    else if (points > target) {
-        alert('You lost!')
-        points = 0
-        target = Math.round(Math.random() * 75) + 25;
-        $('#target').text(target);
-        $('#points').text(points);
-    }
+
+let username;
+
+function addGif(searchTerm) {
+    $.ajax({
+        url: `https://api.giphy.com/v1/gifs/random?api_key=fP48laK1atTXVubvELoxOtRtivArHEQk&tag=${searchTerm }&rating=R`,
+        method: "GET"
+    }).then(function(response) {
+        $('.gif-chat').append(`
+        <div class="gif-message">
+            <iframe "embed-responsive-item" src=${response.data.embed_url} alt="">
+        </div>
+        `)
+    });
+}
+
+$('#send-message').on('click', function() {
+    addGif($('#message').val());
+    $('#message').val('');
 })

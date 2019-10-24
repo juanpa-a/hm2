@@ -4,27 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
-    <title>Crystal Collector</title>
-
+    <title>Gif Chat</title>
+    
 </head>
 <body>
 
-    <div class="container">
-        <h3>Crystal Collector!</h3>
-        <h3>Points! <span id='points'></span></h3>
-        <h3>Target is: <span id="target"></span></h3> 
-
-        <div class="row crystals">
-            <button class="crystal btn btn-primary" value=2>Blue</button>
-            <button class="crystal btn btn-success" value=3>Green</button>
-            <button class="crystal btn btn-warning" value=4>Yellow</button>
-            <button class="crystal btn btn-danger" value=5>Red</button>
+    <nav class="navbar navbar-dark bg-dark ">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.trzcacak.rs/myfile/full/6-62616_pix-funny-pictures-funny-png.png" width="30" height="30" alt="">
+        </a>
+        <h1>Public gif only group chat!</h1>
+    </nav>
+    
+    <div class="">
+        <div class="gif-chat">
+            
         </div>
     </div>
 
+    <div class="footer">
+        <div class="row">
+            <div class="col-lg-11">
+                <input id="message" align="left" class="form-control" type="Send your gif!">
+            </div>
+            <div class="col-lg-1">
+                <button id="send-message" type="submit" class="btn btn-primary mb-2">Send!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
